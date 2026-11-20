@@ -1,42 +1,20 @@
 # Django CRUD API
 
-Django দিয়ে post management ও CRUD (Create, Read, Update, Delete) শেখার একটি practice project।
+A Django practice project for building a post management API.
 
-## বর্তমান অবস্থা
+## Current Features
 
-- `post` app এবং `Post` model তৈরি আছে।
-- Post-এর `title` ও `content` field আছে।
-- SQLite database ব্যবহার করা হয়েছে।
-- Django admin route: `/admin/`।
-- CRUD API endpoints এখনো implement করা হয়নি।
+- Post model with `title` and `content` fields
+- SQLite database
+- Django admin route at `/admin/`
 
-## পরিকল্পিত features
+## Planned Features
 
-| HTTP method | কাজ |
-| --- | --- |
-| GET | Post list ও details দেখা |
-| POST | নতুন post তৈরি করা |
-| PUT | একটি post পুরোপুরি update করা |
-| PATCH | Post-এর নির্দিষ্ট field update করা |
-| DELETE | Post মুছে ফেলা |
+CRUD endpoints using GET, POST, PUT, PATCH, and DELETE, with frontend requests using JavaScript `fetch()`.
 
-Frontend থেকে JavaScript-এর `fetch()` দিয়ে API request পাঠানোর পরিকল্পনা আছে। `fetch()` একটি function, HTTP method নয়।
+## Setup
 
-## Project structure
-
-```text
-django_crud_api/
-├── README.md
-├── myprojects/
-│   ├── manage.py
-│   ├── myprojects/    # Settings ও মূল URL configuration
-│   └── post/          # Post app ও migration files
-└── venv/              # Local virtual environment
-```
-
-## Local setup
-
-Repository root থেকে চালান:
+Run from the repository root:
 
 ```bash
 python3 -m venv venv
@@ -47,28 +25,15 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-Admin page: http://127.0.0.1:8000/admin/
+## Structure
 
-Admin user তৈরি করতে:
-
-```bash
-python manage.py createsuperuser
+```text
+django_crud_api/
+├── README.md
+└── myprojects/
+    ├── manage.py
+    ├── myprojects/
+    └── post/
 ```
 
-Model পরিবর্তন করলে:
-
-```bash
-python manage.py makemigrations
-python manage.py migrate
-```
-
-## GitHub repository
-
-Git commands এই directory থেকে চালান:
-
-```bash
-cd /home/nasir/django_projects/django_crud_api
-```
-
-এতে `README.md` ও `myprojects/` একই repository-তে থাকবে।
-`venv/`, `.env`, `__pycache__/` ও local `db.sqlite3` Git-এ commit করবেন না। Migration files commit করুন।
+Run Git commands from `django_crud_api/`. Exclude virtual environments, `.env`, Python caches, and local databases from commits.
